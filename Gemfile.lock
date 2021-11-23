@@ -90,6 +90,8 @@ GEM
       railties (>= 5.0.0)
     ffaker (2.20.0)
     ffi (1.15.4)
+    font-awesome-sass (5.15.1)
+      sassc (>= 1.11)
     globalid (0.5.2)
       activesupport (>= 5.0)
     haml (5.2.2)
@@ -277,6 +279,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   factory_bot_rails
   ffaker
+  font-awesome-sass (~> 5.15.1)
   hot-glue
   jbuilder (~> 2.7)
   listen (~> 3.3)
