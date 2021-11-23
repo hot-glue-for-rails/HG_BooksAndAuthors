@@ -1,0 +1,41 @@
+<div class="row">
+  <div class='col form-group <%='alert-danger' if @book.errors.details.keys.include?(:name)%>' > 
+  <%= f.text_field :name, value: @book.name, size: 40, class: 'form-control', type: '' %>
+   <label class='form-text' >Name</label>
+</div>
+<div class='col form-group <%= 'alert-danger' if book.errors.details.keys.include?(:author) %>' >
+<%= f.collection_select(:author_id, Author.all, :id, :name, {prompt: true, selected: @book.author_id }, class: 'form-control') %>
+<label class='small form-text text-muted'>Author</label></div>
+<div class='col form-group <%='alert-danger' if @book.errors.details.keys.include?(:blurb)%>' > 
+  <%= f.text_field :blurb, value: @book.blurb, size: 40, class: 'form-control', type: '' %>
+   <label class='form-text' >Blurb</label>
+</div>
+<div class="col form-group #{'alert-danger' if book.errors.details.keys.include?(:long_description)}"><%= f.text_area :long_description, class: 'form-control', cols: 40, rows: '5' %><label class='form-text'>Long description</label></div>
+<div class='col form-group <%='alert-danger' if @book.errors.details.keys.include?(:cost)%>' > 
+  <%= f.text_field :cost, value: @book.cost, size: 256, class: 'form-control', type: '' %>
+   <label class='form-text' >Cost</label>
+</div>
+<div class="col form-group <%= 'alert-danger' if book.errors.details.keys.include?(:how_many_printed) %> " >
+<%= f.text_field :how_many_printed, value: book.how_many_printed, class: 'form-control', size: 4, type: 'number' %>
+<label class='small form-text text-muted'>How many printed</label></div>
+<div class='col form-group <%='alert-danger' if @book.errors.details.keys.include?(:approved_at)%>' > 
+<%= datetime_field_localized(f, :approved_at, book.approved_at, 'Approved at', nil) %></div>
+<div class='col form-group <%='alert-danger' if @book.errors.details.keys.include?(:release_on)%>' > 
+<%= date_field_localized(f, :release_on, book.release_on, 'Release on', nil) %></div>
+<div class='col form-group <%='alert-danger' if @book.errors.details.keys.include?(:time_of_day)%>' > 
+<%= time_field_localized(f, :time_of_day, book.time_of_day,  'Time of day', nil) %></div>
+<div class='col form-group <%='alert-danger' if @book.errors.details.keys.include?(:selected)%>' > 
+  <span>Selected</span>  <%= f.radio_button(:selected,  '0', checked: book.selected  ? '' : 'checked') %>
+  <%= f.label(:selected, value: 'No', for: 'book_selected_0') %>
+  <%= f.radio_button(:selected, '1',  checked: book.selected  ? 'checked' : '') %>
+  <%= f.label(:selected, value: 'Yes', for: 'book_selected_1') %>
+</div>
+<div class='col form-group <%= 'alert-danger' if book.errors.details.keys.include?(:genre) %>' >
+<%= f.collection_select(:genre,  enum_to_collection_select( Book.defined_enums['genre']), :key, :value, {prompt: true, selected: @book.genre }, class: 'form-control') %>
+<label class='small form-text text-muted'>Genre</label></div>
+
+  <div class="col">
+    <%= link_to "Cancel", books_path,  {class: "btn btn-secondary"} %>
+    <%= f.submit "Save", class: "btn btn-primary pull-right" %>
+  </div>
+</div>

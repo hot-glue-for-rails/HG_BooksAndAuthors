@@ -1,0 +1,3 @@
+<%= turbo_stream.replace "authors-list" do %>
+  <%= render partial: "list", locals: {authors: @authors}  %>
+<% end %>

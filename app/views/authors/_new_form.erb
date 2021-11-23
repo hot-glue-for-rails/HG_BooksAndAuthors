@@ -1,0 +1,8 @@
+<%= turbo_frame_tag "author-new" do %>
+<h3>
+  New Author
+  </h3>
+  <%= form_with model:  author, url: authors_path(), method: "post" do  |f| %>
+    <%=  render partial: "authors/form", locals: { author:  author, f: f} %>
+  <% end %>
+<% end %>

@@ -1,0 +1,23 @@
+<%= link_to "<i class='fa fa-arrow-circle-left  2x'></i> Back to list".html_safe, authors_path %>
+
+<%= turbo_frame_tag "author__#{@author.id}" do  %>
+
+  <div class="cell editable" style="position: relative;">
+
+    <% if @author.errors.any? %>
+      <%= render(partial: "#{controller.namespace}errors", locals: {resource: @author }) %>
+    <% end %>
+
+    <h2>Editing <%= @author.name %></h2>
+    <%= form_with model: @author, url: author_path(@author) do |f| %>
+    <%=  render partial: "form",  locals: {:author => @author, f: f} %>
+    <% end %>
+    <i class='fa fa-times-circle fa-2x'
+       data-name='close-author__<% @author.id %> }'
+       data-row-id=@author.id,
+       data-role='close-button'></i>
+  </div>
+
+<% end %>
+
+

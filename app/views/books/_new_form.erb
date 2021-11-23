@@ -1,0 +1,8 @@
+<%= turbo_frame_tag "book-new" do %>
+<h3>
+  New Book
+  </h3>
+  <%= form_with model:  book, url: books_path(), method: "post" do  |f| %>
+    <%=  render partial: "books/form", locals: { book:  book, f: f} %>
+  <% end %>
+<% end %>

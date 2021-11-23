@@ -1,0 +1,23 @@
+<%= link_to "<i class='fa fa-arrow-circle-left  2x'></i> Back to list".html_safe, books_path %>
+
+<%= turbo_frame_tag "book__#{@book.id}" do  %>
+
+  <div class="cell editable" style="position: relative;">
+
+    <% if @book.errors.any? %>
+      <%= render(partial: "#{controller.namespace}errors", locals: {resource: @book }) %>
+    <% end %>
+
+    <h2>Editing <%= @book.name %></h2>
+    <%= form_with model: @book, url: book_path(@book) do |f| %>
+    <%=  render partial: "form",  locals: {:book => @book, f: f} %>
+    <% end %>
+    <i class='fa fa-times-circle fa-2x'
+       data-name='close-book__<% @book.id %> }'
+       data-row-id=@book.id,
+       data-role='close-button'></i>
+  </div>
+
+<% end %>
+
+

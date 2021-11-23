@@ -1,0 +1,18 @@
+<% if @book.errors.none? %>
+  <%= turbo_stream.replace "books-list" do %>
+  <%= render partial: "list", locals: {books: @books} %>
+  <% end %>
+  <% end %>
+  <%= turbo_stream.replace "book-new" do %>
+  <% if @book.errors.none? %>
+  <%= render partial: "new_button" %>
+  <% else %>
+  <%= render partial: "new_form", locals: {book: @book} %>
+  <% end %>
+  <% end %>
+  <%= turbo_stream.replace "flash_notices" do %>
+  <%= render partial: "layouts/flash_notices" %>
+  <% if @book.errors.any? %>
+  <%= render partial: "errors", locals: {resource: @book} %>
+  <% end %>
+<% end %>

@@ -1,0 +1,29 @@
+<%= turbo_frame_tag "books-list" do %>
+  <div class="container-fluid ">BOOK
+    <div class="row">
+      <div class='col'>Name</div>
+<div class='col'>Author</div>
+<div class='col'>Blurb</div>
+<div class='col'>Long description</div>
+<div class='col'>Cost</div>
+<div class='col'>How many printed</div>
+<div class='col'>Approved at</div>
+<div class='col'>Release on</div>
+<div class='col'>Time of day</div>
+<div class='col'>Selected</div>
+<div class='col'>Genre</div>
+      <div class='col buttons-col'></div>
+    </div>
+
+      <% if books.empty? %>
+        <div>
+            None
+        </div>
+      <% end %>
+      <% books.each do |book| %>
+        <%= render partial: 'books/line', locals: {book: book  } %>
+      <% end %>
+
+    <% if books.respond_to?(:total_pages) %><%= paginate(books) %> <% end %>
+  </div>
+<% end %>
