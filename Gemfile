@@ -59,3 +59,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'hot-glue'
+gem 'bootstrap-rubygem'
