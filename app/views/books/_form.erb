@@ -31,7 +31,7 @@
   <%= f.label(:selected, value: 'Yes', for: 'book_selected_1') %>
 </div>
 <div class='col form-group <%= 'alert-danger' if book.errors.details.keys.include?(:genre) %>' >
-<%= f.collection_select(:genre,  enum_to_collection_select( Book.defined_enums['genre']), :key, :value, {prompt: true, selected: @book.genre }, class: 'form-control') %>
+<%= f.collection_select(:genre,  enum_to_collection_select( Book.defined_enums['genres']), :key, :value, {prompt: true, selected: @book.genre }, class: 'form-control') %>
 <label class='small form-text text-muted'>Genre</label></div>
 
   <div class="col">

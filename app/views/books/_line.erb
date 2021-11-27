@@ -1,7 +1,7 @@
 
 <%= turbo_frame_tag "book__#{ book.id }" do  %>
   <div class='row' data-id='<%= book.id %>' data-edit='false'>
-    <%= render partial: 'books/show', locals: { book: book  } %>
+    <%= render partial: 'books/show', locals: { book: book } %>
   </div>
 <% end %>
 

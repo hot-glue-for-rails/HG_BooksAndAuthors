@@ -1,5 +1,13 @@
 <%= turbo_frame_tag "authors-list" do %>
-  <div class="container-fluid ">author-table
+  <div class="container-fluid ">
+    <h4>AUTHORS</h4>
+    <div class="row">
+      <div class="col-md-12">
+        <%= render partial: "authors/new_button", locals: {}%>
+      </div>
+    </div>
+
+
     <div class="row">
       <div class='col'>Name</div>
       <div class='col buttons-col'></div>
@@ -11,7 +19,7 @@
         </div>
       <% end %>
       <% authors.each do |author| %>
-        <%= render partial: 'authors/line', locals: {author: author  } %>
+        <%= render partial: 'authors/line', locals: {author: author } %>
       <% end %>
 
     <% if authors.respond_to?(:total_pages) %><%= paginate(authors) %> <% end %>

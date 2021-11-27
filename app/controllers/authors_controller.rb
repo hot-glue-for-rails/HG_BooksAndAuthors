@@ -1,17 +1,14 @@
 class AuthorsController < ApplicationController
+  helper :hot_glue
+  include HotGlue::ControllerHelper
 
-
+  
   
   before_action :load_author, only: [:show, :edit, :update, :destroy]
   after_action -> { flash.discard }, if: -> { request.format.symbol ==  :turbo_stream }
 
-  helper :hot_glue
-  include HotGlue::ControllerHelper
-
 
   # TODO: implement current_user or use Devise
-
-
 
 
   
@@ -76,6 +73,8 @@ class AuthorsController < ApplicationController
   end
 
   def update
+
+
     if @author.update(modify_date_inputs_on_params(author_params))
       flash[:notice] = "Saved #{@author.name}"
     else
@@ -100,7 +99,7 @@ class AuthorsController < ApplicationController
     end
   end
 
-  def author_params
+def author_params
     params.require(:author).permit( [:name] )
   end
 
@@ -109,16 +108,12 @@ class AuthorsController < ApplicationController
   end
 
   def namespace
-    
-      ""
-    
+    ""
   end
-
 
   def common_scope
     @nested_args
   end
-
 end
 
 

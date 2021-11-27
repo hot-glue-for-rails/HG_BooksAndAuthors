@@ -1,13 +1,13 @@
 <% if @author.errors.none? %>
   <%= turbo_stream.replace "authors-list" do %>
-  <%= render partial: "list", locals: {authors: @authors} %>
+  <%= render partial: "list", locals: {authors: @authors } %>
   <% end %>
   <% end %>
   <%= turbo_stream.replace "author-new" do %>
   <% if @author.errors.none? %>
-  <%= render partial: "new_button" %>
+  <%= render partial: "new_button", locals: {} %>
   <% else %>
-  <%= render partial: "new_form", locals: {author: @author} %>
+  <%= render partial: "new_form", locals: {author: @author  } %>
   <% end %>
   <% end %>
   <%= turbo_stream.replace "flash_notices" do %>

@@ -52,10 +52,10 @@ describe "interaction for AuthorsController", type: :feature do
   describe "destroy" do
     it "should destroy" do
       visit authors_path
-      #accept_alert do
-      # find("form[action='/authors/#{author1.id}'] > button.delete-author-button").click
-      #end
-      find("form[action='/authors/#{author1.id}'] > button.delete-author-button").click
+      accept_alert do
+        find("form[action='/authors/#{author1.id}'] > input.delete-author-button").click
+      end
+#      find("form[action='/authors/#{author1.id}'] > input.delete-author-button").click
 
       expect(page).to_not have_content(author1.name)
       expect(Author.where(id: author1.id).count).to eq(0)

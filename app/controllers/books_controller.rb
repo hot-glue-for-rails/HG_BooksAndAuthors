@@ -1,17 +1,14 @@
 class BooksController < ApplicationController
+  helper :hot_glue
+  include HotGlue::ControllerHelper
 
-
+  
   
   before_action :load_book, only: [:show, :edit, :update, :destroy]
   after_action -> { flash.discard }, if: -> { request.format.symbol ==  :turbo_stream }
 
-  helper :hot_glue
-  include HotGlue::ControllerHelper
-
 
   # TODO: implement current_user or use Devise
-
-
 
 
   
@@ -76,6 +73,8 @@ class BooksController < ApplicationController
   end
 
   def update
+
+
     if @book.update(modify_date_inputs_on_params(book_params))
       flash[:notice] = "Saved #{@book.name}"
     else
@@ -100,7 +99,7 @@ class BooksController < ApplicationController
     end
   end
 
-  def book_params
+def book_params
     params.require(:book).permit( [:name, :author_id, :blurb, :long_description, :cost, :how_many_printed, :approved_at, :release_on, :time_of_day, :selected, :genre] )
   end
 
@@ -109,16 +108,12 @@ class BooksController < ApplicationController
   end
 
   def namespace
-    
-      ""
-    
+    ""
   end
-
 
   def common_scope
     @nested_args
   end
-
 end
 
 

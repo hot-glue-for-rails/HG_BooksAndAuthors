@@ -1,10 +1,20 @@
 <div class='col'>
   <%= author.name %>
 </div>
+
+
+
 <div class="col">
   
-    <%= button_to "Delete".html_safe, author_path(author), method: :delete, data: {confirm: 'Are you sure?'},  disable_with: "Loading...", class: "delete-author-button btn btn-primary " %>
+    <%= form_with url: author_path(author), method: :delete do |f| %>
+      <%= f.submit "Delete".html_safe, data: {confirm: 'Are you sure?'}, class: "delete-author-button btn btn-primary " %>
+    <% end %>
   
-  &nbsp;
+
+
+  
+
+  
   <%= link_to "Edit <i class='fa fa-1x fa-list-alt'></i>".html_safe, edit_author_path(author), disable_with: "Loading...", class: "edit-author-button btn btn-primary " %>
+  
 </div>

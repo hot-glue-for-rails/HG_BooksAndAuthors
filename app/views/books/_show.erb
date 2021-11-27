@@ -54,15 +54,20 @@
   <% end %>
 </div>
 
+
+
+
 <div class="col">
-
-  
-
   
     <%= form_with url: book_path(book), method: :delete do |f| %>
       <%= f.submit "Delete".html_safe, data: {confirm: 'Are you sure?'}, class: "delete-book-button btn btn-primary " %>
     <% end %>
   
 
+
+  
+
+  
   <%= link_to "Edit <i class='fa fa-1x fa-list-alt'></i>".html_safe, edit_book_path(book), disable_with: "Loading...", class: "edit-book-button btn btn-primary " %>
+  
 </div>

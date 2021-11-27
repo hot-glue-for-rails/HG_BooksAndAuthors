@@ -1,13 +1,13 @@
 <% if @book.errors.none? %>
   <%= turbo_stream.replace "books-list" do %>
-  <%= render partial: "list", locals: {books: @books} %>
+  <%= render partial: "list", locals: {books: @books } %>
   <% end %>
   <% end %>
   <%= turbo_stream.replace "book-new" do %>
   <% if @book.errors.none? %>
-  <%= render partial: "new_button" %>
+  <%= render partial: "new_button", locals: {} %>
   <% else %>
-  <%= render partial: "new_form", locals: {book: @book} %>
+  <%= render partial: "new_form", locals: {book: @book  } %>
   <% end %>
   <% end %>
   <%= turbo_stream.replace "flash_notices" do %>

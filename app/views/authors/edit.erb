@@ -12,10 +12,7 @@
     <%= form_with model: @author, url: author_path(@author) do |f| %>
     <%=  render partial: "form",  locals: {:author => @author, f: f} %>
     <% end %>
-    <i class='fa fa-times-circle fa-2x'
-       data-name='close-author__<% @author.id %> }'
-       data-row-id=@author.id,
-       data-role='close-button'></i>
+
   </div>
 
 <% end %>
