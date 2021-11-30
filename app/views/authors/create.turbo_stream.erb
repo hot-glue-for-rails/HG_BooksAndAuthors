@@ -1,6 +1,6 @@
 <% if @author.errors.none? %>
   <%= turbo_stream.replace "authors-list" do %>
-  <%= render partial: "list", locals: {authors: @authors } %>
+  <%= render partial: "list", locals: {authors: @authors} %>
   <% end %>
   <% end %>
   <%= turbo_stream.replace "author-new" do %>

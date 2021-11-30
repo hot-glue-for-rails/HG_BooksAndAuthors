@@ -1,13 +1,13 @@
-<div class='col'>
+<div class='scaffold-cell'  style='flex-basis: 95%'>
   <%= author.name %>
 </div>
 
 
 
-<div class="col">
+<div class="scaffold-cell scaffold-line-buttons" style="flex-basis: 150px;">
   
-    <%= form_with url: author_path(author), method: :delete do |f| %>
-      <%= f.submit "Delete".html_safe, data: {confirm: 'Are you sure?'}, class: "delete-author-button btn btn-primary " %>
+    <%= form_with url: author_path(author), html: {style: "display: inline-block;"}, method: :delete do |f| %>
+      <%= f.submit "Delete".html_safe, data: {confirm: 'Are you sure?'}, class: "delete-author-button btn btn-primary btn-sm" %>
     <% end %>
   
 
@@ -15,6 +15,6 @@
   
 
   
-  <%= link_to "Edit <i class='fa fa-1x fa-list-alt'></i>".html_safe, edit_author_path(author), disable_with: "Loading...", class: "edit-author-button btn btn-primary " %>
+  <%= link_to "Edit <i class='fa fa-1x fa-list-alt'></i>".html_safe, edit_author_path(author), disable_with: "Loading...", class: "edit-author-button btn btn-primary btn-sm" %>
   
 </div>

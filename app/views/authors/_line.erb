@@ -1,7 +1,8 @@
 
 <%= turbo_frame_tag "author__#{ author.id }" do  %>
-  <div class='row' data-id='<%= author.id %>' data-edit='false'>
+  <div class='row scaffold-row' data-id='<%= author.id %>' data-edit='false'>
     <%= render partial: 'authors/show', locals: { author: author } %>
+
   </div>
 <% end %>
 

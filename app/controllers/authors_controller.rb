@@ -13,6 +13,9 @@ class AuthorsController < ApplicationController
 
   
 
+  
+
+
 
   def load_author
     @author = Author.find(params[:id])
@@ -21,7 +24,6 @@ class AuthorsController < ApplicationController
 
   def load_all_authors
     @authors = Author.page(params[:page])
-    
   end
 
   def index
@@ -73,13 +75,12 @@ class AuthorsController < ApplicationController
   end
 
   def update
-
-
     if @author.update(modify_date_inputs_on_params(author_params))
       flash[:notice] = "Saved #{@author.name}"
     else
       flash[:alert] = "Author could not be saved."
     end
+
     respond_to do |format|
       format.turbo_stream
       format.html
@@ -99,7 +100,7 @@ class AuthorsController < ApplicationController
     end
   end
 
-def author_params
+  def author_params
     params.require(:author).permit( [:name] )
   end
 
@@ -109,10 +110,6 @@ def author_params
 
   def namespace
     ""
-  end
-
-  def common_scope
-    @nested_args
   end
 end
 

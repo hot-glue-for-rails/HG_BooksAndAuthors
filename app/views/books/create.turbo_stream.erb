@@ -1,6 +1,6 @@
 <% if @book.errors.none? %>
   <%= turbo_stream.replace "books-list" do %>
-  <%= render partial: "list", locals: {books: @books } %>
+  <%= render partial: "list", locals: {books: @books} %>
   <% end %>
   <% end %>
   <%= turbo_stream.replace "book-new" do %>

@@ -1,27 +1,26 @@
-<%= turbo_frame_tag "authors-list" do %>
-  <div class="container-fluid ">
+<%= turbo_frame_tag "authors-list"   do %>
+  <div class="scaffold-container scaffold-list">
     <h4>AUTHORS</h4>
-    <div class="row">
-      <div class="col-md-12">
-        <%= render partial: "authors/new_button", locals: {}%>
-      </div>
-    </div>
 
+    <%= render partial: "authors/new_button", locals: {}%>
 
-    <div class="row">
-      <div class='col'>Name</div>
-      <div class='col buttons-col'></div>
+    <div class="row scaffold-row">
+      <div class='scaffold-cell'  style='flex-basis: 95%'>Name</div>
+      
+
+      <div class='col scaffold-col-heading scaffold-col-heading-buttons' style="flex-basis: 150px"></div>
     </div>
 
       <% if authors.empty? %>
-        <div>
-            None
-        </div>
+    <div>
+        None
+    </div>
       <% end %>
       <% authors.each do |author| %>
         <%= render partial: 'authors/line', locals: {author: author } %>
       <% end %>
 
     <% if authors.respond_to?(:total_pages) %><%= paginate(authors) %> <% end %>
+    </div>
   </div>
 <% end %>

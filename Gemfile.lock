@@ -1,12 +1,12 @@
 PATH
   remote: /Users/jason/Work/Hot_Glue/hot-glue
   specs:
-    hot-glue (0.2.7)
+    hot-glue (0.2.9E)
       ffaker (~> 2.16)
       kaminari (~> 1.2)
       rails (> 5.1, <= 7.0.0)
       sass-rails
-      turbo-rails (~> 0.5)
+      turbo-rails (> 0.5)
 
 GEM
   remote: https://rubygems.org/

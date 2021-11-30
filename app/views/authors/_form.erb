@@ -1,10 +1,10 @@
 <div class="row">
-  <div class='col form-group <%='alert-danger' if @author.errors.details.keys.include?(:name)%>' > 
+  <div class='scaffold-cell form-group <%='alert-danger' if @author.errors.details.keys.include?(:name)%>' > 
   <%= f.text_field :name, value: @author.name, size: 40, class: 'form-control', type: '' %>
    <label class='form-text' >Name</label>
 </div>
 
-  <div class="col">
+  <div class="">
     <%= link_to "Cancel", authors_path,  {class: "btn btn-secondary"} %>
     <%= f.submit "Save", class: "btn btn-primary pull-right" %>
   </div>

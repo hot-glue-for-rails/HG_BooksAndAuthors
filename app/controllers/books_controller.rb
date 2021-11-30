@@ -13,6 +13,9 @@ class BooksController < ApplicationController
 
   
 
+  
+
+
 
   def load_book
     @book = Book.find(params[:id])
@@ -21,7 +24,6 @@ class BooksController < ApplicationController
 
   def load_all_books
     @books = Book.page(params[:page])
-    
   end
 
   def index
@@ -73,13 +75,12 @@ class BooksController < ApplicationController
   end
 
   def update
-
-
     if @book.update(modify_date_inputs_on_params(book_params))
       flash[:notice] = "Saved #{@book.name}"
     else
       flash[:alert] = "Book could not be saved."
     end
+
     respond_to do |format|
       format.turbo_stream
       format.html
@@ -99,7 +100,7 @@ class BooksController < ApplicationController
     end
   end
 
-def book_params
+  def book_params
     params.require(:book).permit( [:name, :author_id, :blurb, :long_description, :cost, :how_many_printed, :approved_at, :release_on, :time_of_day, :selected, :genre] )
   end
 
@@ -109,10 +110,6 @@ def book_params
 
   def namespace
     ""
-  end
-
-  def common_scope
-    @nested_args
   end
 end
 

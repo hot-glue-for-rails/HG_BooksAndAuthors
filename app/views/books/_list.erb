@@ -1,37 +1,36 @@
-<%= turbo_frame_tag "books-list" do %>
-  <div class="container-fluid ">
+<%= turbo_frame_tag "books-list"   do %>
+  <div class="scaffold-container scaffold-list">
     <h4>BOOKS</h4>
-    <div class="row">
-      <div class="col-md-12">
-        <%= render partial: "books/new_button", locals: {}%>
-      </div>
-    </div>
 
+    <%= render partial: "books/new_button", locals: {}%>
 
-    <div class="row">
-      <div class='col'>Name</div>
-<div class='col'>Author</div>
-<div class='col'>Blurb</div>
-<div class='col'>Long description</div>
-<div class='col'>Cost</div>
-<div class='col'>How many printed</div>
-<div class='col'>Approved at</div>
-<div class='col'>Release on</div>
-<div class='col'>Time of day</div>
-<div class='col'>Selected</div>
-<div class='col'>Genre</div>
-      <div class='col buttons-col'></div>
+    <div class="row scaffold-row">
+      <div class='scaffold-cell'  style='flex-basis: 8%'>Name</div>
+<div class='scaffold-cell'  style='flex-basis: 8%'>Author</div>
+<div class='scaffold-cell'  style='flex-basis: 8%'>Blurb</div>
+<div class='scaffold-cell'  style='flex-basis: 8%'>Long description</div>
+<div class='scaffold-cell'  style='flex-basis: 8%'>Cost</div>
+<div class='scaffold-cell'  style='flex-basis: 8%'>How many printed</div>
+<div class='scaffold-cell'  style='flex-basis: 8%'>Approved at</div>
+<div class='scaffold-cell'  style='flex-basis: 8%'>Release on</div>
+<div class='scaffold-cell'  style='flex-basis: 8%'>Time of day</div>
+<div class='scaffold-cell'  style='flex-basis: 8%'>Selected</div>
+<div class='scaffold-cell'  style='flex-basis: 8%'>Genre</div>
+      
+
+      <div class='col scaffold-col-heading scaffold-col-heading-buttons' style="flex-basis: 150px"></div>
     </div>
 
       <% if books.empty? %>
-        <div>
-            None
-        </div>
+    <div>
+        None
+    </div>
       <% end %>
       <% books.each do |book| %>
         <%= render partial: 'books/line', locals: {book: book } %>
       <% end %>
 
     <% if books.respond_to?(:total_pages) %><%= paginate(books) %> <% end %>
+    </div>
   </div>
 <% end %>
